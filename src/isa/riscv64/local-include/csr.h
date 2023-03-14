@@ -250,6 +250,8 @@ CSR_STRUCT_END(mip)
 #define SPMP_X     0x04
 #define SPMP_A     0x18
 #define SPMP_L     0x80
+#define SPMP_SHIFT 2
+#define SPMP_PLATFORMGARIN 12 // log2(4KB)
 
 //encoding of A field in sPMP configuration registers
 #define SPMP_TOR   0x08
@@ -583,5 +585,11 @@ uint8_t pmpcfg_from_index(int idx);
 word_t pmpaddr_from_index(int idx);
 word_t pmpaddr_from_csrid(int id);
 word_t pmp_tor_mask();
+
+// sPMP
+uint8_t spmpcfg_from_index(int idx);
+word_t spmpaddr_from_index(int idx);
+word_t spmpaddr_from_csrid(int id);
+word_t spmp_tor_mask();
 
 #endif
